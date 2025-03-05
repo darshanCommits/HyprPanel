@@ -136,6 +136,7 @@ NixOS instructions are pending updates for HyprPanel v2.
 
 Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS using the provided Nix Flake. First, add the repository to your Flake's inputs, and enable the overlay.
 
+
 #### Example flake.nix without home-manager
 
 ```nix
@@ -195,6 +196,17 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
       };
     };
   };
+}
+```
+
+### You may also need to enable these services to get the associated module working.
+
+```nix
+# *.nix
+{
+  services.upower.enable = true; # Battery and power related modules
+  services.gvfs.enable = true; # For network cover art urls to be cached (spotify for example)
+  hardware.bluetooth.enable = true; 
 }
 ```
 
